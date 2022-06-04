@@ -1,5 +1,6 @@
 const { model } = require("mongoose");
 const bcrypt = require("bcrypt");
+const locationSchema = require("./Location");
 
 const userSchema = new Schema(
   {
@@ -18,6 +19,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    location: locationSchema,
   },
   // set this to use virtual below
   {
