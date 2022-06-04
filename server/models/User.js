@@ -1,4 +1,4 @@
-const { model } = require("mongoose");
+const { model, Schema } = require("mongoose");
 const bcrypt = require("bcrypt");
 const locationSchema = require("./Location");
 

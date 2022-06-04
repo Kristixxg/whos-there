@@ -1,7 +1,8 @@
 const { Schema } = require("mongoose");
+const courtSchema = require("./Court");
 
 const locationSchema = new Schema({
-  // saved location id from GoogleMaps
+  // saved location id from GoogleMaps API
   locationId: {
     type: String,
     required: true,
@@ -10,6 +11,7 @@ const locationSchema = new Schema({
     type: String,
     required: true,
   },
+  court: courtSchema,
 });
 
 module.exports = locationSchema;
