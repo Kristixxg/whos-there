@@ -33,6 +33,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     saveLocation(locationId: String!, locationName: String!): User
+    removeLocation(locationId: String!): User
   }
 `;
 
