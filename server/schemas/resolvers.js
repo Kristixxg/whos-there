@@ -1,4 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
+const { getArgumentValues } = require("graphql");
 const { User } = require("../models");
 
 const resolvers = {
@@ -59,6 +60,22 @@ const resolvers = {
             $pull: { location: args },
           },
           { new: true }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    saveCourt: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $addToSet: { location: args },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
         );
       }
       throw new AuthenticationError("You need to be logged in!");
