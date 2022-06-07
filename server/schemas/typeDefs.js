@@ -34,7 +34,8 @@ const typeDefs = gql`
 
     saveLocation(locationId: String!, locationName: String!): User
     removeLocation(locationId: String!): User
-    saveCourt(courtId: String, courtName: String!): User
+    saveCourt(courtId: String!, courtName: String!): User
+    removeCourt(courtId: String!): User
   }
 `;
 
