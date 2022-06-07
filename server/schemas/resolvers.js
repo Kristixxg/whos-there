@@ -50,6 +50,19 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
+    removeLocation: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $pull: { location: args },
+          },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
 
