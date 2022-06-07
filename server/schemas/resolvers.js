@@ -1,6 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { getArgumentValues } = require("graphql");
 const { User } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
@@ -16,14 +16,13 @@ const resolvers = {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
-
       return { token, user };
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError("No profile with this email found!");
+        throw new AuthenticationError("No user with this email found!");
       }
 
       const correctPw = await user.isCorrectPassword(password);
@@ -36,28 +35,27 @@ const resolvers = {
       return { token, user };
     },
 
-    saveLocation: async (parent, args, context) => {
+    saveLocation: async (parent, { locationName }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $addToSet: { location: args },
+            $set: { location: { locationName: locationName } },
           },
           {
             new: true,
-            runValidators: true,
           }
         );
       }
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    removeLocation: async (parent, args, context) => {
+    removeLocation: async (parent, { locationId }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $pull: { location: args },
+            $pull: { location: { locationId } },
           },
           { new: true }
         );
@@ -65,28 +63,27 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    saveCourt: async (parent, args, context) => {
+    saveCourt: async (parent, { courtName }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $addToSet: { location: args },
+            $set: { "location.court.courtName": courtName },
           },
           {
             new: true,
-            runValidators: true,
           }
         );
       }
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    removeCourt: async (parent, args, context) => {
+    removeCourt: async (parent, { courtId }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $pull: { location: args },
+            $pull: { "location.court": courtId },
           },
           { new: true }
         );
