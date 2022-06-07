@@ -10,12 +10,12 @@ const typeDefs = gql`
   }
 
   type Location {
-    locationId: String
+    _id: ID
     locationName: String
     court: Court
   }
   type Court {
-    courtId: String
+    _id: ID
     courtName: String
   }
 
@@ -32,10 +32,10 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 
-    saveLocation(locationId: String!, locationName: String!): User
-    removeLocation(locationId: String!): User
-    saveCourt(courtId: String!, courtName: String!): User
-    removeCourt(courtId: String!): User
+    saveLocation(locationName: String!): User
+    removeLocation(locationId: ID!): User
+    saveCourt(courtName: String!): User
+    removeCourt(courtId: ID!): User
   }
 `;
 
