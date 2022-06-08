@@ -4,8 +4,12 @@ import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 
 
-function Login(props) {
+function Login() {
 
+
+    const handleFormSubmit = async () => {
+        
+    }
     return (
         <>
 
@@ -16,7 +20,7 @@ function Login(props) {
                     <h1>Login</h1>
                     <div className="input"><input type='text' placeholder="Username" id="usernameLogin"></input></div>
                     <div className="input"><input type='password' placeholder="Password" id="passwordLogin"></input></div>
-                    <button class="loginBtn" type="submit">Login</button>
+                    <button className="loginBtn" type="submit">Login</button>
                 </div>
             </form>
             <div className="signupBtn">
