@@ -57,14 +57,38 @@ function Home() {
         libraries, 
       })
 
+      //using react state hook to render
+      const [markers, setMarkers] = useState([]);
+      const [selected, setSelected] = useState(null);
+
+     //avoid recreating function when render
+  const onMapClick = React.useCallback((event)=> {
+    console.log(event);
+    setMarkers(current => [...current, {
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng(),
+      time: new Date(),
+    }])
+  }, []);
 
 
+  //use useRef to retain state without causing rerenders
+  //use useState when we want to rerender
+  const mapRef = React.useRef();
+  const onMapLoad = React.useCallback((map)=>{
+    mapRef.current = map;
+  }, []);
 
+  //this function pan to the latlng where use hv chosen
+  //set it as no defs
+  //zoom in
+  const panTo = React.useCallback(({lat, lng }) => {
+    mapRef.current.panTo({lat, lng});
+    mapRef.current.setZoom(18);
+  }, [])
 
-
-
-
-
+  if (loadError) return 'Error loading maps';
+  if (!isLoaded) return 'Loading Maps';
 
 
 
