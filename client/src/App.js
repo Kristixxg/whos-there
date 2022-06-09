@@ -13,13 +13,13 @@ function App() {
   return (
     // <ApolloClient>
     <ClientOnly>
-        <h1>WHOS THERE <span>🎾</span></h1>
         <nav>
-         <ul>
-           <li><a href='/homepage'>HOME</a></li>
-           <li><a href='/profile'>PROFILE</a></li>
-           <li><a href='/'>LOGIN</a></li>
-         </ul>
+          <h1>WHOS THERE <span>🎾</span></h1>
+          <ul>
+            <li><a href='/homepage'>HOME</a></li>
+            <li><a href='/profile'>PROFILE</a></li>
+            <li><a href='/'>LOGIN</a></li>
+          </ul>
         </nav>
 
     <Router>
@@ -31,9 +31,13 @@ function App() {
       </Routes>
     </Router>
 
-
       <footer>
-        Footer
+        <div>
+          <button><a>GitHub</a></button>
+        </div>
+        <div>
+        <small>&copy; All rights reserved by Whos There Team</small>
+        </div>
       </footer>
       
     </ClientOnly>
