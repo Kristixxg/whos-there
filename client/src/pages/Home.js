@@ -26,10 +26,14 @@ import {
 import "@reach/combobox/styles.css";
 
 
+const libraries = ["places"];
 
-
-
-
+//size of google map screen
+const mapContainerStyle = {
+    width: '100vw',
+    height: "85vh",
+  }
+  
 
 
 
