@@ -13,6 +13,15 @@ function App() {
   return (
     // <ApolloClient>
     <ClientOnly>
+
+        <nav>
+         <ul>
+           <li><a href='/homepage'>HOME</a></li>
+           <li><a href='/profile'>PROFILE</a></li>
+           <li><a href='/'>LOGIN</a></li>
+         </ul>
+        </nav>
+
     <Router>
       <Routes>
         <Route  path='/' element={<Login/>} />
@@ -21,6 +30,12 @@ function App() {
         <Route  path='/profile' element={<Profile/>} />
       </Routes>
     </Router>
+
+
+      <footer>
+        Footer
+      </footer>
+      
     </ClientOnly>
   //  </ApolloClient>
   );
