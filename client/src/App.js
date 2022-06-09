@@ -5,10 +5,9 @@ import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Signup from './pages/Signup'
 import {ApolloProvider, ApolloClient,createHttpLink,InMemoryCache} from '@apollo/client';
-import { BrowserRouter as Router, Routes, 
-  Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
   import { setContext } from '@apollo/client/link/context';
-// import { ClientOnly } from "react-client-only";
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -31,7 +30,7 @@ function App() {
   });
   return (
     <ApolloProvider client={client}> 
-    {/* <ClientOnly> */}
+
         <nav>
           <h1 className='titleh1'>WHOS THERE <span>🎾</span></h1>
           <ul>
@@ -58,8 +57,7 @@ function App() {
         <small>&copy; All rights reserved by Whos There Team</small>
         </div>
       </footer>
-      
-    {/* </ClientOnly> */}
+
   </ApolloProvider>
   );
 }
