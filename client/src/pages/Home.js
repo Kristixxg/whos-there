@@ -93,7 +93,6 @@ function Home() {
 
 return(
 <div>
-      <h1>WHOS THERE <span>🎾</span></h1>
       {/* passin panTo prop */}
       <Search panTo={panTo} />
 
@@ -136,7 +135,6 @@ return(
             </div>
           </InfoWindow>) : null}
       </GoogleMap>
-      <footer>footer</footer>
     </div>
 )
 }
