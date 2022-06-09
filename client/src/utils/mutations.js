@@ -39,3 +39,17 @@ export const SAVE_LOCATION = gql`
     }
   }
 `;
+
+export const REMOVE_LOCATION = gql`
+  mutation removeLocation($locationId: ID!) {
+    removeLocation(locationId: $locationId) {
+      _id
+      username
+      email
+      location {
+        _id
+        locationName
+      }
+    }
+  }
+`;
