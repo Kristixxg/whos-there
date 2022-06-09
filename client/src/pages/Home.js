@@ -50,10 +50,23 @@ const options = {
   }
 
 
-
-
-
 function Home() {
+    const {isLoaded, loadError} = useLoadScript({
+        googleMapsApiKey: "AIzaSyCtTgv741GIni8QktYKLPiJDyZdQyyVhAY",
+        // googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+        libraries, 
+      })
+
+
+
+
+
+
+
+
+
+
+
 
 return(
     <>
