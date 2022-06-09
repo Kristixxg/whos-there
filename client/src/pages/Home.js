@@ -125,7 +125,17 @@ return(
           }}
           />
           ))}
-       
+           {selected ? (
+          <InfoWindow 
+          position={{lat:selected.lat, lng:selected.lng}}
+          onCloseClick={()=> {
+            setSelected(null);
+          }}>
+            <div>
+              <h2>I am here!</h2>
+              <p>I got here at {formatRelative(selected.time, new Date())}</p>
+            </div>
+          </InfoWindow>) : null}
       </GoogleMap>
       <footer>footer</footer>
     </div>
