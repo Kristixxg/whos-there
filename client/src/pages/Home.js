@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 // import { useMutation } from '@apollo/client';
+import './home.css';
 
 import {
   GoogleMap,
@@ -174,7 +175,7 @@ function Search({panTo}) {
   
           }}    
         >
-        <ComboboxInput value={value} onChange={(e) => {
+        <ComboboxInput className="searchInput" value={value} onChange={(e) => {
           setValue(e.target.value);
         }}
         disabled={!ready}
