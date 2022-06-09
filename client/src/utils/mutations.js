@@ -25,3 +25,17 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const SAVE_LOCATION = gql`
+  mutation saveLocation($locationName: String!) {
+    saveLocation(locationName: $locationName) {
+      _id
+      username
+      email
+      location {
+        _id
+        locationName
+      }
+    }
+  }
+`;
