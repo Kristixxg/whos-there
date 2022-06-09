@@ -30,7 +30,7 @@ const libraries = ["places"];
 //size of google map screen
 const mapContainerStyle = {
     width: '100vw',
-    height: "85vh",
+    height: "78vh",
   }
 
 
