@@ -71,3 +71,21 @@ export const SAVE_COURT = gql`
     }
   }
 `;
+
+export const REMOVE_COURT = gql`
+  mutation removeCourt($courtId: ID!) {
+    removeCourt(courtId: $courtId) {
+      _id
+      username
+      email
+      location {
+        _id
+        locationName
+        court {
+          _id
+          courtName
+        }
+      }
+    }
+  }
+`;
