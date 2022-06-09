@@ -33,7 +33,15 @@ const mapContainerStyle = {
     width: '100vw',
     height: "85vh",
   }
+
+
+////initial display - Gellert Park, Daly City, CA
+const center = {
+    lat: 37.662546,
+    lng: -122.471321,
+  };
   
+
 
 
 
