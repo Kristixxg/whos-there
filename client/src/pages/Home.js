@@ -40,7 +40,14 @@ const center = {
     lat: 37.662546,
     lng: -122.471321,
   };
-  
+
+//Style of Google Maps
+const options = {
+    mapTypeId: 'satellite',
+    tilt: 0,
+    disableDefaultUI: true,
+    zoomControl: true, 
+  }
 
 
 
