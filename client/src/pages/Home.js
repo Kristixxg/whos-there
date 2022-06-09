@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import { useMutation } from '@apollo/client';
 
-import React, { useState } from 'react';
 import {
   GoogleMap,
   useLoadScript,
@@ -140,8 +139,60 @@ return(
       <footer>footer</footer>
     </div>
 )
-
 }
+
+//search bar 
+
+function Search({panTo}) {
+    const {ready, value, suggestions: {status, data}, setValue, clearSuggestions,} = usePlacesAutocomplete({
+      requestOptions: {
+        location: { lat: () => 37.662546, lng: () => -122.471321 },
+        radius: 200 * 1000,
+      },
+    });
+  
+  
+    return ( 
+    <div className='search'> 
+      {/* when a user selects one of the suggestions that are showing, 
+      we call setValue state to be the address the user picked and set it without going to google and fetch data */}
+      <Combobox 
+      //using async becase we'll be using promises 
+        onSelect={ async (address) => {
+          //reposition where the latlng is when a place is clicked in the searchbar popover
+          // no need to get address from google api
+          setValue(address, false);
+          // clearing out the suggestions after
+          clearSuggestions();
+  
+          try {
+            const results = await getGeocode({address});
+            //getLatLng function (comes in with autocomplete pkg) can extract  latlng
+            const {lat, lng} = await getLatLng(results[0]);
+            panTo({lat, lng});
+          } catch (error) {
+            console.log("error!")
+          }
+  
+          }}    
+        >
+        <ComboboxInput value={value} onChange={(e) => {
+          setValue(e.target.value);
+        }}
+        disabled={!ready}
+        placeholder='Enter an address'/>
+  
+        <ComboboxPopover>
+          {status === 'OK' && 
+          data.map(({id, description}) => (
+            <ComboboxOption key={id} value={description} />
+            ))}
+        </ComboboxPopover>
+      </Combobox>
+    </div>
+    )
+  };
+
 
 
 export default Home;
