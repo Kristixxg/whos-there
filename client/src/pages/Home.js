@@ -93,9 +93,42 @@ function Home() {
 
 
 return(
-    <>
-    <h1>THIS IS THE HOMEPAGE!</h1>
-    </>
+<div>
+      <h1>WHOS THERE <span>🎾</span></h1>
+      {/* passin panTo prop */}
+      <Search panTo={panTo} />
+
+      <GoogleMap 
+      mapContainerStyle={mapContainerStyle} 
+      zoom={20} 
+      center={center}
+      options={options}
+      onClick={onMapClick}
+      onLoad={onMapLoad}
+       >
+
+        {markers.map((marker) => (
+        <Marker 
+          //modify key to be ???
+          key={marker.time.toISOString()}
+          position={{ lat:marker.lat, lng:marker.lng }}
+          icon={{
+            url:'/images/001-tennis.png',
+            scaledSize: new window.google.maps.Size(30,30),
+            // center the marker when clicked
+            origin: new window.google.maps.Point(0,0),
+            anchor: new window.google.maps.Point(15,15),
+
+          }}
+          onClick={()=> {
+            setSelected(marker);
+          }}
+          />
+          ))}
+       
+      </GoogleMap>
+      <footer>footer</footer>
+    </div>
 )
 
 }
