@@ -18,8 +18,8 @@ ul {
     display: flex;
 }
 
-ul li {
-    padding: 2rem;
+ul li, .titleh1 {
+    padding: 1rem;
     text-decoration: none;
 }
 
