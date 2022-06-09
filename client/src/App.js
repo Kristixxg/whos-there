@@ -7,7 +7,7 @@ import Signup from './pages/Signup'
 // import {ApolloClient} from '@apollo/client';
 import { BrowserRouter as Router, Routes, 
   Route} from 'react-router-dom';
-  import { ClientOnly } from "react-client-only";
+import { ClientOnly } from "react-client-only";
 
 function App() {
   return (
