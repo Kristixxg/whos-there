@@ -13,7 +13,7 @@ function App() {
   return (
     // <ApolloClient>
     <ClientOnly>
-
+        <h1>WHOS THERE <span>🎾</span></h1>
         <nav>
          <ul>
            <li><a href='/homepage'>HOME</a></li>
