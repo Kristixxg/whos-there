@@ -14,7 +14,7 @@ function App() {
     // <ApolloClient>
     <ClientOnly>
         <nav>
-          <h1>WHOS THERE <span>🎾</span></h1>
+          <h1 className='titleh1'>WHOS THERE <span>🎾</span></h1>
           <ul>
             <li><a href='/homepage'>HOME</a></li>
             <li><a href='/profile'>PROFILE</a></li>
