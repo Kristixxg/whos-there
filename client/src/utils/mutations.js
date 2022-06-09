@@ -53,3 +53,21 @@ export const REMOVE_LOCATION = gql`
     }
   }
 `;
+
+export const SAVE_COURT = gql`
+  mutation SaveCourt($courtName: String!) {
+    saveCourt(courtName: $courtName) {
+      _id
+      username
+      email
+      location {
+        _id
+        locationName
+        court {
+          _id
+          courtName
+        }
+      }
+    }
+  }
+`;
