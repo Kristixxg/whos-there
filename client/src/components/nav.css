@@ -6,7 +6,7 @@ nav {
 }
 
 .titleImage {
-    width: 40px;
+    width: 60px;
 }
 
 .titleh1 {
@@ -66,4 +66,67 @@ a {
 
 .button-68:hover {
   box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+
+/* media queries */
+/* tablet */
+@media screen and (max-width: 768px ) {
+  .titleImage {
+    width: 60px;
+}
+}
+
+
+/* phone */
+@media screen and (max-width: 390px ) {
+  .titleImage {
+    width: 55px;
+}
+
+.titleh1 {
+    font-size: 1.8rem;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-68 {
+  font-size: 13px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+ 
+}
+
+/* phone SE */
+
+@media screen and (max-width: 375px ) {
+ 
+  .titleImage {
+      width: 50px;
+  }
+
+  .titleh1 {
+      font-size: 1.8rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button-68 {
+    font-size: 13px;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    padding: 0.5rem 0.5rem 0rem;
+  }
+
+
 }
