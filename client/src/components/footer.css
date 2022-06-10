@@ -1,0 +1,13 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    margin: 2rem auto;
+    width: 100vw;
+    text-align: center;
+}
+
+svg {
+ cursor: pointer;
+ width: 28px;
+ height: 28px;
+}
