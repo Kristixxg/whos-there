@@ -4,15 +4,36 @@ import Login from './pages/Login';
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Signup from './pages/Signup'
-// import {ApolloClient} from '@apollo/client';
-import { BrowserRouter as Router, Routes, 
-  Route} from 'react-router-dom';
-import { ClientOnly } from "react-client-only";
+import {ApolloProvider, ApolloClient,createHttpLink,InMemoryCache} from '@apollo/client';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+  import { setContext } from '@apollo/client/link/context';
+
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
+  
+  
   return (
-    // <ApolloClient>
-    <ClientOnly>
+    <ApolloProvider client={client}> 
+
         <nav>
           <h1 className='titleh1'>WHOS THERE <span>🎾</span></h1>
           <ul>
@@ -39,9 +60,8 @@ function App() {
         <small>&copy; All rights reserved by Whos There Team</small>
         </div>
       </footer>
-      
-    </ClientOnly>
-  //  </ApolloClient>
+
+  </ApolloProvider>
   );
 }
 
