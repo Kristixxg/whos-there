@@ -41,31 +41,31 @@ const Signup = () => {
     return (
 
 
-            <div className="container">
-                {data ? (
-                    <p>
-                        Success! You may now head{''}
-                        <Link to="/homepage">back to the homepage.</Link>
-                    </p>
-                ) : (
-                    <form className="form-area signup-form" onSubmit={handleFormSubmit}>
-                        <div className="form-text">
-                            <h1>Signup Form</h1>
-                            <div className="input-one"><input type="text"  placeholder="Username"  value={formState.username} name="username" onChange={handleChange} /></div>
-                            <div className="input-one"><input type="email" placeholder="Email" value={formState.email} name="email" onChange={handleChange} />
-                            </div>
-                            <div className="input-one"><input type="password" placeholder="Password" value={formState.password} name="password" onChange={handleChange} />
-                            </div>
-                                <button className="signupbtn" type="submit">Sign Up</button>
+        <div className="container">
+            {data ? (
+                <p>
+                    Success! You may now head{''}
+                    <Link to="/homepage">back to the homepage.</Link>
+                </p>
+            ) : (
+                <form className="form-area signup-form" onSubmit={handleFormSubmit}>
+                    <div className="form-text">
+                        <h1>Signup Form</h1>
+                        <div className="input-one"><input type="text" placeholder="Username" value={formState.username} name="username" onChange={handleChange} /></div>
+                        <div className="input-one"><input type="email" placeholder="Email" value={formState.email} name="email" onChange={handleChange} />
                         </div>
-                    </form>
-                )}
-                  {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
+                        <div className="input-one"><input type="password" placeholder="Password" value={formState.password} name="password" onChange={handleChange} />
+                        </div>
+                        <button className="signupbtn" type="submit">Sign Up</button>
+                    </div>
+                </form>
             )}
-            </div>
+            {error && (
+                <div className="my-3 p-3 bg-danger text-white">
+                    {error.message}
+                </div>
+            )}
+        </div>
     )
 
 }
