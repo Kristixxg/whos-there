@@ -9,37 +9,24 @@ import { BrowserRouter as Router, Routes,
   Route} from 'react-router-dom';
 import { ClientOnly } from "react-client-only";
 
+
+import Nav from './components/Nav';
+import Footer from './components/Footer';
+
 function App() {
   return (
     // <ApolloClient>
     <ClientOnly>
-        <nav>
-          <h1 className='titleh1'>WHOS THERE <span>🎾</span></h1>
-          <ul>
-            <li><a href='/homepage'>HOME</a></li>
-            <li><a href='/profile'>PROFILE</a></li>
-            <li><a href='/'>LOGIN</a></li>
-          </ul>
-        </nav>
-
-    <Router>
-      <Routes>
-        <Route  path='/' element={<Login/>} />
-        <Route  path='/signup' element={<Signup/>} />
-        <Route  path='/homepage' element={<Home/>} />
-        <Route  path='/profile' element={<Profile/>} />
-      </Routes>
-    </Router>
-
-      <footer>
-        <div>
-          <button><a>GitHub</a></button>
-        </div>
-        <div>
-        <small>&copy; All rights reserved by Whos There Team</small>
-        </div>
-      </footer>
-      
+      <Nav />
+      <Router>
+        <Routes>
+          <Route  path='/' element={<Login/>} />
+          <Route  path='/signup' element={<Signup/>} />
+          <Route  path='/homepage' element={<Home/>} />
+          <Route  path='/profile' element={<Profile/>} />
+        </Routes>
+      </Router>
+      <Footer />      
     </ClientOnly>
   //  </ApolloClient>
   );
