@@ -37,7 +37,7 @@
 /* tablet */
 @media screen and (max-width: 768px ) {
     .locate {
-        top: 12rem;
+        top: 15rem;
     }
     .searchInput {
         width: 70%;
@@ -48,7 +48,7 @@
 /* phone */
 @media screen and (max-width: 390px ) {
     .locate {
-        top: 14rem;
+        top: 18rem;
     }
     .searchInput {
         width: 90%;
@@ -57,13 +57,16 @@
 }
 
 /* phone SE */
-
 @media screen and (max-width: 375px ) {
     .locate {
-        top: 15.7rem;
+        top: 15.8rem;
     }
     .searchInput {
         width: 90%;
+        font-size: 12px;
+    }
+    .search {
+        margin-bottom: 0.5rem;
     }
    
 }
