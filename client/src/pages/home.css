@@ -8,5 +8,62 @@
    padding: 0.5rem;
    border-radius: 10px;
    border: 2px solid gray;
-   width: 50%;
+   width: 60%;
+}
+
+.locate {
+    position:absolute;
+    top: 14.5rem;
+    right:0.65rem;
+    background: white;
+    padding: 0.3rem;
+    height: 40px;
+    width: 40px;
+    border-radius: 2px;
+    border: none;
+    z-index: 1;
+}
+
+.locate img:hover {
+   transform: scale(1.04);
+}
+
+.locate img {
+    width: 30px;
+    cursor: pointer;
+}
+
+/* media queries */
+/* tablet */
+@media screen and (max-width: 768px ) {
+    .locate {
+        top: 12rem;
+    }
+    .searchInput {
+        width: 70%;
+    }
+}
+
+
+/* phone */
+@media screen and (max-width: 390px ) {
+    .locate {
+        top: 14rem;
+    }
+    .searchInput {
+        width: 90%;
+    }
+   
+}
+
+/* phone SE */
+
+@media screen and (max-width: 375px ) {
+    .locate {
+        top: 15.7rem;
+    }
+    .searchInput {
+        width: 90%;
+    }
+   
 }
