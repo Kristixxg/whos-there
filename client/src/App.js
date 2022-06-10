@@ -4,19 +4,39 @@ import Login from './pages/Login';
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Signup from './pages/Signup'
-// import {ApolloClient} from '@apollo/client';
-import { BrowserRouter as Router, Routes, 
-  Route} from 'react-router-dom';
-import { ClientOnly } from "react-client-only";
-
+import {ApolloProvider, ApolloClient,createHttpLink,InMemoryCache} from '@apollo/client';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { setContext } from '@apollo/client/link/context';
 
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
+
+
+
 function App() {
   return (
-    // <ApolloClient>
-    <ClientOnly>
+    <ApolloProvider client={client}> 
       <Nav />
       <Router>
         <Routes>
@@ -27,8 +47,9 @@ function App() {
         </Routes>
       </Router>
       <Footer />      
-    </ClientOnly>
-  //  </ApolloClient>
+    </ApolloProvider>
+ 
+
   );
 }
 
