@@ -31,22 +31,21 @@ const libraries = ["places"];
 //size of google map screen
 const mapContainerStyle = {
     width: '100vw',
-    height: "78vh",
+    height: "70vh",
   }
 
 
-////initial display - Gellert Park, Daly City, CA
+////initial display - Golden gate park, SF CA
 const center = {
-    lat: 37.662546,
-    lng: -122.471321,
+    lat: 37.7686208,
+    lng: -122.4899138,
   };
 
 //Style of Google Maps
 const options = {
     mapTypeId: 'satellite',
     tilt: 0,
-    disableDefaultUI: true,
-    zoomControl: true, 
+    // disableDefaultUI: true,
   }
 
 
@@ -90,15 +89,15 @@ function Home() {
   if (!isLoaded) return 'Loading Maps';
 
 
-
 return(
 <div>
       {/* passin panTo prop */}
-      <Search panTo={panTo} />
 
+      <Search panTo={panTo} />
+      <Locate panTo={panTo} />
       <GoogleMap 
       mapContainerStyle={mapContainerStyle} 
-      zoom={20} 
+      zoom={17} 
       center={center}
       options={options}
       onClick={onMapClick}
@@ -139,8 +138,26 @@ return(
 )
 }
 
-//search bar 
 
+//locate user current address
+function Locate({panTo}) {
+  return <button className='locate' onClick={()=>{
+    // assuming all the model browser will have geolocation
+    //first arg is when we are able to get position
+    //second arg is when run into error, if error we do nothing-null, not deal with the error
+    navigator.geolocation.getCurrentPosition((position)=>{
+    // console.log(position);
+    panTo({
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+    })
+    }, ()=>null, options);
+  }}><img src="images/001-compass.png" alt="compass: locate me"></img></button>
+}
+
+
+
+//search bar 
 function Search({panTo}) {
     const {ready, value, suggestions: {status, data}, setValue, clearSuggestions,} = usePlacesAutocomplete({
       requestOptions: {
@@ -154,7 +171,7 @@ function Search({panTo}) {
     <div className='search'> 
       {/* when a user selects one of the suggestions that are showing, 
       we call setValue state to be the address the user picked and set it without going to google and fetch data */}
-      <Combobox 
+      <Combobox
       //using async becase we'll be using promises 
         onSelect={ async (address) => {
           //reposition where the latlng is when a place is clicked in the searchbar popover
@@ -179,7 +196,7 @@ function Search({panTo}) {
         }}
         disabled={!ready}
         placeholder='Enter an address'/>
-  
+ 
         <ComboboxPopover>
           {status === 'OK' && 
           data.map(({id, description}) => (
