@@ -9,6 +9,7 @@ export const QUERY_ME = gql`
       location {
         _id
         locationName
+        checkin
         court {
           _id
           courtName
