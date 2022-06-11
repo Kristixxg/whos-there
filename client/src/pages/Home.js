@@ -49,6 +49,9 @@ const options = {
   // disableDefaultUI: true,
 };
 
+let newlat;
+let newlng;
+
 function Home() {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -70,9 +73,27 @@ function Home() {
   //using react state hook to render
   const [markers, setMarkers] = useState([]);
   const [selected, setSelected] = useState(null);
+  //const [latlng, setLatlng] =useState(null);
 
   //avoid recreating function when render
+
   const onMapClick = React.useCallback((event) => {
+
+    newlat= event.latLng.lat();
+    // console.log(newlat);
+    newlng = event.latLng.lng();
+    // console.log(newlng);
+
+    // latlng = {
+    //   newlat,
+    //   newlng
+    // }
+    // setLatlng({
+    //   newlat,
+    //   newlng
+    // })
+    // console.log(latlng);
+
     console.log(event);
     setMarkers((current) => [
       ...current,
@@ -83,6 +104,8 @@ function Home() {
       },
     ]);
   }, []);
+
+
 
   //use useRef to retain state without causing rerenders
   //use useState when we want to rerender
@@ -122,16 +145,18 @@ function Home() {
             key={marker.time.toISOString()}
             position={{ lat: marker.lat, lng: marker.lng }}
             icon={{
-              url: "/images/004-running-1.png",
+              url: "/images/002-placeholder.png",
+              // url: "/images/001-user.png",
               scaledSize: new window.google.maps.Size(50, 50),
               // center the marker when clicked
-              origin: new window.google.maps.Point(0, 0),
-              anchor: new window.google.maps.Point(25, 25),
+              // origin: new window.google.maps.Point(0, 0),
+              // anchor: new window.google.maps.Point(25, 25),
             }}
             onClick={() => {
               setSelected(marker);
             }}
           />
+         
         ))}
         {selected ? (
           <InfoWindow
@@ -143,6 +168,7 @@ function Home() {
             <div>
               <h2>{user.username}</h2>
               <p>I got here at {formatRelative(selected.time, new Date())}</p>
+              <p>{newlat} and  {newlng}</p>
             </div>
           </InfoWindow>
         ) : null}
@@ -202,6 +228,7 @@ function Search({ panTo }) {
         onSelect={async (address) => {
           //reposition where the latlng is when a place is clicked in the searchbar popover
           // no need to get address from google api
+          console.log(address)
           setValue(address, false);
           // clearing out the suggestions after
           clearSuggestions();
