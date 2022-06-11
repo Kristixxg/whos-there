@@ -14,6 +14,8 @@ const typeDefs = gql`
     _id: ID
     locationName: String
     checkin: String
+    latitude: String
+    longitude: String
     court: Court
   }
   type Court {
@@ -36,7 +38,12 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(username: String!, password: String!): Auth
 
-    saveLocation(locationName: String!, checkin: String!): User
+    saveLocation(
+      locationName: String!
+      checkin: String!
+      latitude: String
+      longitude: String
+    ): User
     removeLocation(locationId: ID!): User
     saveCourt(courtName: String!): User
     removeCourt(courtId: ID!): User
