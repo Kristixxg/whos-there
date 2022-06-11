@@ -26,8 +26,18 @@ export const LOGIN_USER = gql`
 `;
 
 export const SAVE_LOCATION = gql`
-  mutation saveLocation($locationName: String!, $checkin: String) {
-    saveLocation(locationName: $locationName, checkin: $checkin) {
+  mutation saveLocation(
+    $locationName: String!
+    $checkin: String
+    $latitude: String
+    $longitude: String
+  ) {
+    saveLocation(
+      locationName: $locationName
+      checkin: $checkin
+      latitude: $latitude
+      longitude: $longitude
+    ) {
       _id
       username
       email
@@ -35,6 +45,8 @@ export const SAVE_LOCATION = gql`
         _id
         locationName
         checkin
+        latitude
+        longitude
       }
     }
   }
