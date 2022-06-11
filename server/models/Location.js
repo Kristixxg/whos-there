@@ -9,6 +9,12 @@ const locationSchema = new Schema({
   checkin: {
     type: String,
   },
+  latitude: {
+    type: String,
+  },
+  longitude: {
+    type: String,
+  },
   court: courtSchema,
 });
 
