@@ -45,13 +45,22 @@ const resolvers = {
       return { token, user };
     },
 
-    saveLocation: async (parent, { locationName, checkin }, context) => {
+    saveLocation: async (
+      parent,
+      { locationName, checkin, latitude, longitude },
+      context
+    ) => {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
             $set: {
-              location: { locationName: locationName, checkin: checkin },
+              location: {
+                locationName: locationName,
+                checkin: checkin,
+                latitude: latitude,
+                longitude: longitude,
+              },
             },
           },
           {
