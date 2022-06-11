@@ -27,7 +27,7 @@ const Profile = () => {
     <h4>You need to be looged in to see your profile.</h4>;
   }
   console.log(user.username);
-  console.log(user.userId);
+  console.log(user.location.locationName);
   return (
     <div className="bg">
       <div className="profile_container">
@@ -40,7 +40,7 @@ const Profile = () => {
 
         <div className="profile_bottom">
           <div className="profile_details">
-            <p>Current Location: </p>
+            <p>Current Location:{user.location.locationName} </p>
             <p>Currently using court: </p>
             <p>Check-in at: </p>
           </div>
