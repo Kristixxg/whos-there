@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 // import { useMutation } from '@apollo/client';
 import "./home.css";
+import Geocode from "react-geocode";
+
+
 
 import {
   GoogleMap,
@@ -29,6 +32,13 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
 
 const libraries = ["places"];
+Geocode.setApiKey(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+Geocode.setLanguage("en");
+
+let newlat;
+let newlng;
+
+
 
 //size of google map screen
 const mapContainerStyle = {
@@ -49,8 +59,7 @@ const options = {
   // disableDefaultUI: true,
 };
 
-let newlat;
-let newlng;
+
 
 function Home() {
   const { isLoaded, loadError } = useLoadScript({
@@ -159,6 +168,17 @@ function Home() {
             }}
             onClick={() => {
               setSelected(marker);
+
+              Geocode.fromLatLng(newlat, newlng).then(
+                (response) => {
+                  const address = response.results[0].formatted_address;
+                  console.log(address);
+                },
+                (error) => {
+                  console.error(error);
+                }
+              );
+
             }}
           />
          
