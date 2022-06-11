@@ -29,7 +29,7 @@ import "@reach/combobox/styles.css";
 
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
-import { SAVE_LOCATION } from '../utils/mutations';
+import { SAVE_LOCATION, REMOVE_LOCATION } from '../utils/mutations';
 
 const libraries = ["places"];
 Geocode.setApiKey(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
@@ -103,7 +103,21 @@ function Home() {
     }
   };
 
+  const [ removeLocation, { error }] = useMutation(REMOVE_LOCATION);
 
+const handleDeleteLocation = async (locationId) => {
+  try {
+    const response = await removeLocation({
+      variables: { locationId: locationId}
+    });
+    if (!response.ok) {
+      throw new Error("something went wrong!");
+    }
+  } catch (error) {
+    console.error(error);
+  }
+  }
+}
 
 
 
@@ -231,7 +245,7 @@ function Home() {
               <h3 className="infowinText">I got here at {formatRelative(selected.time, new Date())}</h3>
               {/* <h3 className="infowinText">My current location: {newlat},{newlng}</h3> */}
               <h3 className="infowinText">My current location: {addressUser}</h3>
-              <button className="infoBtn" onClick={() => {setMarkers([]); setSelected(null)}}>Check Out</button>
+              <button className="infoBtn" onClick={() => {setMarkers([]); setSelected(null); handleDeleteLocation(user.location.locationId)}}>Check Out</button>
               {Auth.loggedIn()
               ?
              null
