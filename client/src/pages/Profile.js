@@ -33,14 +33,13 @@ const Profile = () => {
       <div className="profile_container">
         <div className="profile_top">
           <div className="profile_image">
-            <img src="./images/003-boy.png"></img>
+            <img src="./images/004-tennis.png"></img>
           </div>
-          <p className="profile_username">{user.username}</p>
+          <p className="profile_username">Username:{user.username}</p>
         </div>
 
         <div className="profile_bottom">
           <div className="profile_details">
-            <p>Gender:</p>
             <p>Current Location: </p>
             <p>Currently using court: </p>
             <p>Check-in at: </p>

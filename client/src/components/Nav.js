@@ -2,7 +2,7 @@ import React from "react";
 import './nav.css';
 import Auth from '../utils/auth';
 
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -14,26 +14,18 @@ function Nav() {
             (
                 <>
                     <ul>
-                        {/* <li className="button-68"><Link to='/homepage'>HOME</Link></li>
+                        <li className="button-68"><Link to='/homepage'>HOME</Link></li>
                         <li className="button-68"><Link to='/profile'>PROFILE</Link></li>
-                        <li onClick={Auth.logout} className="button-68"><Link to='/homepage'>LOGOUT</Link></li> */}
-
-                        <li className="button-68" ><a href='/homepage'>HOME</a></li>
-                        <li className="button-68" ><a href='/profile'>PROFILE</a></li>
-                        <li className="button-68" ><a onClick={Auth.logout} href='/homepage'>LOGOUT</a></li>
+                        <li onClick={Auth.logout} className="button-68"><Link to='/homepage'>LOGOUT</Link></li>
                     </ul>
                 </>
             ) : 
             (
                 <>
                     <ul>
-                        {/* <li className="button-68"><Link to='/homepage'>HOME</Link></li>
-                        <li className="button-68"><Link to='/signup'>SIGN UP-</Link></li>
-                        <li className="button-68"><Link to='/'>LOGIN-</Link></li> */}
-
-                        <li className="button-68" ><a href='/homepage'>HOME</a></li>
-                        <li className="button-68" ><a href='/signup'>SIGN UP</a></li>
-                        <li className="button-68" ><a href='/'>LOGIN</a></li>
+                        <li className="button-68"><Link to='/homepage'>HOME</Link></li>
+                        <li className="button-68"><Link to='/signup'>SIGN UP</Link></li>
+                        <li className="button-68"><Link to='/'>LOGIN</Link></li>
                     </ul>
                 </>
             )
