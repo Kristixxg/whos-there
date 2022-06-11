@@ -65,7 +65,7 @@ const resolvers = {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $pull: { location: { locationId } },
+            $unset: { location: { locationId } },
           },
           { new: true }
         );
@@ -93,7 +93,7 @@ const resolvers = {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $pull: { "location.court": courtId },
+            $unset: { "location.court": courtId },
           },
           { new: true }
         );
