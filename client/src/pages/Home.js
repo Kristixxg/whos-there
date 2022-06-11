@@ -72,6 +72,7 @@ function Home() {
 
   //using react state hook to render
   const [markers, setMarkers] = useState([]);
+  // const [marker, setMarker] = useState();
   const [selected, setSelected] = useState(null);
   //const [latlng, setLatlng] =useState(null);
 
@@ -84,10 +85,6 @@ function Home() {
     newlng = event.latLng.lng();
     // console.log(newlng);
 
-    // latlng = {
-    //   newlat,
-    //   newlng
-    // }
     // setLatlng({
     //   newlat,
     //   newlng
@@ -95,8 +92,15 @@ function Home() {
     // console.log(latlng);
 
     console.log(event);
+
+    // setMarker({
+    //   lat: event.latLng.lat(),
+    //   lng: event.latLng.lng(),
+    //   time: new Date(),
+    // })
+
     setMarkers((current) => [
-      ...current,
+      // ...current,
       {
         lat: event.latLng.lat(),
         lng: event.latLng.lng(),
@@ -144,6 +148,7 @@ function Home() {
             //modify key to be ???
             key={marker.time.toISOString()}
             position={{ lat: marker.lat, lng: marker.lng }}
+            // draggable={true}
             icon={{
               url: "/images/002-placeholder.png",
               // url: "/images/001-user.png",
@@ -157,18 +162,30 @@ function Home() {
             }}
           />
          
-        ))}
+       ))}
         {selected ? (
           <InfoWindow
-            position={{ lat: selected.lat, lng: selected.lng }}
+            position={{ 
+              lat: selected.lat, 
+              lng: selected.lng,
+               }}
+            options={{
+                pixelOffset: new window.google.maps.Size(
+                  0, -30
+                )
+              }}
             onCloseClick={() => {
               setSelected(null);
             }}
           >
-            <div>
-              <h2>{user.username}</h2>
-              <p>I got here at {formatRelative(selected.time, new Date())}</p>
-              <p>{newlat} and  {newlng}</p>
+            <div className="infobox">
+              <div className="infoTitle">
+                <img className="infoboxImg" src="./images/004-search.png"></img>
+                <h2>{user.username}</h2>
+              </div>
+              <h3 className="infowinText">I got here at {formatRelative(selected.time, new Date())}</h3>
+              <h3 className="infowinText">My current location: {newlat},{newlng}</h3>
+              <button className="infoBtn" onClick={() => {setMarkers([]); setSelected(null)}}>Check Out</button>
             </div>
           </InfoWindow>
         ) : null}
