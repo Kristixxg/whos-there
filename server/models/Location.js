@@ -4,7 +4,7 @@ const courtSchema = require("./Court");
 const locationSchema = new Schema({
   locationName: {
     type: String,
-    required: true,
+    // required: true,
   },
   court: courtSchema,
 });
