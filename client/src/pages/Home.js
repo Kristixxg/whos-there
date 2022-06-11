@@ -88,6 +88,7 @@ function Home() {
   //const [latlng, setLatlng] =useState(null);
 
   const [saveLocation, {error}] = useMutation(SAVE_LOCATION);
+  const [removeLocation, {remove_error} ] = useMutation(REMOVE_LOCATION);
 
   const handleSaveLocation = async (event) => {
     try {
@@ -96,28 +97,23 @@ function Home() {
         locationName: addressUser
         },
       });
-      // setLocationAddress("test");
-      // setLocationAddress(addressUser);
     } catch (err) {
       console.error(err);
     }
   };
 
-  const [ removeLocation, { error }] = useMutation(REMOVE_LOCATION);
-
-const handleDeleteLocation = async (locationId) => {
-  try {
-    const response = await removeLocation({
-      variables: { locationId: locationId}
-    });
-    if (!response.ok) {
-      throw new Error("something went wrong!");
+  const handleDeleteLocation = async (locationId) => {
+    try {
+      const response = await removeLocation({
+        variables: { locationId: locationId}
+      });
+      // if (!response.ok) {
+      //   throw new Error("something went wrong!");
+      // }
+    } catch (error) {
+      console.error(error);
     }
-  } catch (error) {
-    console.error(error);
-  }
-  }
-}
+  };
 
 
 
@@ -245,7 +241,10 @@ const handleDeleteLocation = async (locationId) => {
               <h3 className="infowinText">I got here at {formatRelative(selected.time, new Date())}</h3>
               {/* <h3 className="infowinText">My current location: {newlat},{newlng}</h3> */}
               <h3 className="infowinText">My current location: {addressUser}</h3>
-              <button className="infoBtn" onClick={() => {setMarkers([]); setSelected(null); handleDeleteLocation(user.location.locationId)}}>Check Out</button>
+
+              {/* <p>{user.location._id}</p> */}
+
+              <button className="infoBtn" onClick={() => {setMarkers([]); setSelected(null); handleDeleteLocation(user.location._id)}}>Check Out</button>
               {Auth.loggedIn()
               ?
              null
