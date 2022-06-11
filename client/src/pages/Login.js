@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useMutation } from '@apollo/client';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { LOGIN_USER } from '../utils/mutations'
-// import { useNavigate } from "react-router-dom";
+import './login.css'
 
 const Login = () => {
 
@@ -33,23 +33,21 @@ const Login = () => {
             console.error(e);
         }
 
-           setFormState({
+        setFormState({
             username: '',
             password: '',
-          });
+        });
 
-        //   const nav = useNavigate();
     }
     return (
         <>
             <div className="container">
                 <div className="form-area">
                     {data ? (
-                            <p>
+                        <p>
                             Success! You may now head{' '}
                             <Link to="/homepage">back to the homepage.</Link>
-                            {/* <Navigate to="/signup"/>; */}
-                          </p>
+                        </p>
                     ) : (
                         <form className='login-form' onSubmit={handleFormSubmit}>
                             <div className="form-text">
@@ -66,7 +64,7 @@ const Login = () => {
                             <div className="signupBtn">
                                 <h3>Already Have An Account?</h3>
                                 <Link to='/signup'>
-                                    <button className="aBtn" type="submit">Sign Up!</button>
+                                    <button  type="submit">Sign Up!</button>
                                 </Link>
                             </div>
                         </form>
