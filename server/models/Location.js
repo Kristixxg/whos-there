@@ -6,6 +6,9 @@ const locationSchema = new Schema({
     type: String,
     // required: true,
   },
+  checkin: {
+    type: String,
+  },
   court: courtSchema,
 });
 
