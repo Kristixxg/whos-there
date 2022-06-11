@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 // import { useMutation } from '@apollo/client';
 import "./home.css";
+import Geocode from "react-geocode";
+import Auth from '../utils/auth';
 
 import {
   GoogleMap,
@@ -25,10 +27,19 @@ import {
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
 
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
+import { SAVE_LOCATION } from '../utils/mutations';
 
 const libraries = ["places"];
+Geocode.setApiKey(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+Geocode.setLanguage("en");
+
+let newlat;
+let newlng;
+let addressUser;
+
+
 
 //size of google map screen
 const mapContainerStyle = {
@@ -49,8 +60,7 @@ const options = {
   // disableDefaultUI: true,
 };
 
-let newlat;
-let newlng;
+
 
 function Home() {
   const { isLoaded, loadError } = useLoadScript({
@@ -72,12 +82,36 @@ function Home() {
 
   //using react state hook to render
   const [markers, setMarkers] = useState([]);
-  // const [marker, setMarker] = useState();
   const [selected, setSelected] = useState(null);
+  const [locationName, setLocationAddress] = useState('');
+
   //const [latlng, setLatlng] =useState(null);
 
-  //avoid recreating function when render
+  const [saveLocation, {error}] = useMutation(SAVE_LOCATION);
 
+  const handleSaveLocation = async (event) => {
+    try {
+      const { data } = await saveLocation({
+        variables:{
+        locationName: addressUser
+        },
+      });
+      // setLocationAddress("test");
+      // setLocationAddress(addressUser);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+
+
+
+
+
+
+
+
+  //avoid recreating function when render
   const onMapClick = React.useCallback((event) => {
 
     newlat= event.latLng.lat();
@@ -92,12 +126,6 @@ function Home() {
     // console.log(latlng);
 
     console.log(event);
-
-    // setMarker({
-    //   lat: event.latLng.lat(),
-    //   lng: event.latLng.lng(),
-    //   time: new Date(),
-    // })
 
     setMarkers((current) => [
       // ...current,
@@ -143,7 +171,7 @@ function Home() {
         onClick={onMapClick}
         onLoad={onMapLoad}
       >
-        {markers.map((marker) => (
+        {markers.map((marker) =>  (
           <Marker
             //modify key to be ???
             key={marker.time.toISOString()}
@@ -159,6 +187,23 @@ function Home() {
             }}
             onClick={() => {
               setSelected(marker);
+
+              Geocode.fromLatLng(newlat, newlng).then(
+                (response) => {
+                  addressUser = response.results[0].formatted_address;
+                  console.log(addressUser);
+                },
+                (error) => {
+                  console.error(error);
+                }
+              );
+
+
+
+              handleSaveLocation();
+
+
+
             }}
           />
          
@@ -184,8 +229,15 @@ function Home() {
                 <h2>{user.username}</h2>
               </div>
               <h3 className="infowinText">I got here at {formatRelative(selected.time, new Date())}</h3>
-              <h3 className="infowinText">My current location: {newlat},{newlng}</h3>
+              {/* <h3 className="infowinText">My current location: {newlat},{newlng}</h3> */}
+              <h3 className="infowinText">My current location: {addressUser}</h3>
               <button className="infoBtn" onClick={() => {setMarkers([]); setSelected(null)}}>Check Out</button>
+              {Auth.loggedIn()
+              ?
+             null
+             :
+             <h3 className="infowinText" >Please login to save this data to the map!</h3>
+              }
             </div>
           </InfoWindow>
         ) : null}
@@ -193,6 +245,13 @@ function Home() {
     </div>
   );
 }
+
+
+
+
+
+
+
 
 //locate user current address
 function Locate({ panTo }) {
