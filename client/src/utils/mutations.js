@@ -26,14 +26,15 @@ export const LOGIN_USER = gql`
 `;
 
 export const SAVE_LOCATION = gql`
-  mutation saveLocation($locationName: String!) {
-    saveLocation(locationName: $locationName) {
+  mutation saveLocation($locationName: String!, $checkin: String) {
+    saveLocation(locationName: $locationName, checkin: $checkin) {
       _id
       username
       email
       location {
         _id
         locationName
+        checkin
       }
     }
   }
@@ -48,6 +49,7 @@ export const REMOVE_LOCATION = gql`
       location {
         _id
         locationName
+        checkin
       }
     }
   }
