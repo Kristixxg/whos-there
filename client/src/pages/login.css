@@ -1,0 +1,73 @@
+.container {
+    background-image: url('../assets/images/image.jpg');
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-position:center;
+}
+
+.form-area{
+    left      : 50%;
+    top       : 50%;
+    position  : absolute;
+    transform : translate(-50%, -50%);
+    box-shadow: 0 0 20px 0 rgb(8, 90, 25);
+    background: rgba(66, 87, 78, 0.8);
+    padding: 20px;
+    color: rgb(0, 0, 0);
+}
+
+.form-text {
+    font-size: x-large;
+    color: rgb(0, 0, 0);
+    height: 100%;
+    width: 100%;
+}
+
+.form-text h1 {
+    text-align: center;
+    margin: 35px 0;
+    font-size: 42px;
+    color: rgb(255, 255, 255);
+}
+
+.form-text button {
+    width: 100px;
+    margin: 10px auto;
+    display: block;
+    cursor: pointer;
+    border: 0;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 0 rgba(11, 231, 84, 0.575);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+.signupBtn button{
+    width: 100px;
+    margin: 10px auto;
+    display: block;
+    cursor: pointer;
+    border: 0;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 0 rgba(11, 231, 84, 0.575);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+.signupBtn h3 {
+    color: white;
+}
+
+.form-text input {
+    display: block;
+    width: 250px;
+    margin: 20px auto;
+    padding: 1px 15px;
+    color: rgb(0, 0, 0);
+    border: 0;
+    font-size: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px 0 rgba(11, 231, 84, 0.575);
+}
