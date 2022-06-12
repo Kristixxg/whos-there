@@ -74,14 +74,14 @@ node server.js
 ## Contributors
 * Kristy Guo [LinkedIn](www.linkedin.com/in/kristixxg) | [GitHub](https://github.com/kristixxg)
 
-* Keerti Chaudhary [LinkedIn](https://www.linkedin.com/in/) | [GitHub](https://github.com/)
+* Keerti Chaudhary [LinkedIn](https://www.linkedin.com/in/keerti-chaudhary-25331791/) | [GitHub](https://github.com/17keerti)
 
 * Christian Tellez [LinkedIn](https://www.linkedin.com/in/) | [GitHub](https://github.com/)
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Copyright (c) 2022 Keerti Chaudhary & Kristy Guo & Christian Tellez
+Copyright (c) 2022 Kristy Guo & Keerti Chaudhary & Christian Tellez
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
