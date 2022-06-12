@@ -11,7 +11,7 @@ import {
   InfoWindow,
 } from "@react-google-maps/api";
 
-import { formatRelative } from "date-fns";
+import { formatRelative, subDays } from "date-fns";
 import { useParams } from "react-router-dom";
 import usePlacesAutocomplete, {
   getGeocode,
@@ -83,6 +83,7 @@ function Home() {
   //using react state hook to render
   const [markers, setMarkers] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [userSelected, setUserSelected] =  useState(null);
   const [locationName, setLocationAddress] = useState('');
 
   //const [latlng, setLatlng] =useState(null);
@@ -203,6 +204,7 @@ function Home() {
 
         {users.map((user) => {
           return user.location ? (
+            <>
           <Marker
               key={user._id}
               position={{lat: parseFloat(user.location.latitude),lng: parseFloat(user.location.longitude)}}
@@ -210,7 +212,35 @@ function Home() {
                 url: "/images/003-direction.png",
                 scaledSize: new window.google.maps.Size(50, 50),
               }}
+              onClick={() => {
+                setUserSelected(user);
+              }}
           />
+          {userSelected ? (
+          <InfoWindow
+            position={{lat: parseFloat(user.location.latitude),lng: parseFloat(user.location.longitude)}}
+            options={{
+                pixelOffset: new window.google.maps.Size(
+                  0, -30
+                ),
+                maxWidth:320
+              }}
+            onCloseClick={() => {
+              setUserSelected(null);
+            }}
+            >
+             <div className="infobox">
+              <div className="infoTitle">
+                <img className="infoboxImg" src="./images/002-target.png"></img>
+                <h3>{user.username}</h3>
+              </div>
+              {/* <p className="infowinText">{user.location.checkin}</p> */}
+              <p className="infowinText">{user.location.locationName}</p>
+            </div>
+          </InfoWindow>
+           ) : null}
+
+          </>
           )
           :
           (
@@ -222,11 +252,11 @@ function Home() {
                 scaledSize: new window.google.maps.Size(50, 50),
               }}
           />  
+          
           )         
           })}
 
-
-
+        
         {markers.map((marker) => (
             <Marker
               //modify key to be ???
