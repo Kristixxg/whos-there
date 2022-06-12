@@ -27,6 +27,13 @@ export const QUERY_USERS = gql`
       _id
       username
       email
+      location {
+        _id
+        locationName
+        checkin
+        latitude
+        longitude
+      }
     }
   }
 `;

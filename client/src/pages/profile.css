@@ -1,7 +1,7 @@
 .profile_container {
     display: flex;
+    width: 40%;
     flex-direction: column;
-    width: fit-content;
     margin-left: 50%;
     transform: translateX(-50%);
     
@@ -15,18 +15,23 @@
     text-align: center;
     color: white;
     font-size: 1.5rem;
-    margin-top: 5rem;
-}
-
-.profile_image img {
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    margin: 1rem 5rem;
+    margin-top: 8rem;
 }
 
 .profile_image {
-    height: 400px;
+    /* height: 300px; */
+    width: 30%;
+    margin-top: 2rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.profile_image img {
+    width: 100%;
+}
+
+.profile_username {
+    margin: 1rem;
 }
 
 .profile_bottom {
@@ -37,6 +42,13 @@
     text-align: left;
     color: white;
     font-size: 1rem;
+}
+
+.profile_icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .profile_details {
@@ -55,5 +67,61 @@
     margin:0;
 }
 
+p {
+    text-align: center;
+}
 
 
+
+/* media queries */
+/* tablet */
+@media screen and (max-width: 768px ) {
+    .profile_container {
+        width: 68%;
+    }
+
+    .profile_username {
+        font-size: 1.5rem;
+        margin: 1.5rem;
+    }
+   
+}
+
+
+/* phone */
+@media screen and (max-width: 390px ) {
+    .profile_container {
+        width: 90%;
+    }
+
+    .profile_top {
+        margin-top: 3rem;
+    }
+
+    .profile_username {
+        font-size: 1.3rem;
+        margin: 0.5rem;
+    }
+}
+
+/* phone SE */
+@media screen and (max-width: 375px ) {
+    .profile_container p, h1, h2, h3, h4{
+        font-size: 0.7rem;
+    }
+
+    .profile_top {
+        margin-top: 0.5rem;
+    }
+
+    .profile_image {
+        margin-top:0.5rem;
+    }
+
+    .profile_username {
+        font-size: 0.7rem;
+        margin-bottom:0.4rem;
+    }
+
+
+}

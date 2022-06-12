@@ -35,18 +35,23 @@ const Profile = () => {
           <div className="profile_image">
             <img src="./images/004-tennis.png"></img>
           </div>
-          <p className="profile_username">Username:{user.username}</p>
+          <h4 className="profile_username">{user.username}</h4>
         </div>
 
         <div className="profile_bottom">
           <div className="profile_details">
             {user.location?.locationName ? (
               <div>
-                <p>Current Location:${user.location.locationName}</p>
+                <img className="profile_icon" src="./images/003-check.png"></img>
+                <p>Current Location: {user.location.locationName}</p>
+                <img className="profile_icon" src="./images/001-stopwatch.png"></img>
                 <p>Check-in at:{user.location.checkin}</p>
               </div>
             ) : (
-              <p>Status: Not using a court currently</p>
+              <div>
+                <img className="profile_icon" src="./images/002-rivalry.png"></img>
+                <p>Status: Still Looking...</p>
+              </div>
             )}
           </div>
         </div>
