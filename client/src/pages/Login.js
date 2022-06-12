@@ -9,6 +9,8 @@ const Login = () => {
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
+
+  // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
@@ -17,6 +19,7 @@ const Login = () => {
     });
   };
 
+  // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
@@ -31,11 +34,16 @@ const Login = () => {
       console.error(e);
     }
 
+
+    // clear form values
     setFormState({
       username: "",
       password: "",
     });
   };
+
+
+  // return JSX 
   return (
     <>
       <div className="container">
@@ -46,7 +54,7 @@ const Login = () => {
               <Link to="/">back to the homepage.</Link>
             </p>
           ) : (
-            <form className="login-form" onSubmit={handleFormSubmit}>
+            <form onSubmit={handleFormSubmit}>
               <div className="form-text">
                 <h1>Login</h1>
                 <div className="input">
