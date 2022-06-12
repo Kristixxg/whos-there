@@ -28,7 +28,7 @@ import {
 import "@reach/combobox/styles.css";
 
 import { useQuery, useMutation } from "@apollo/client";
-import { QUERY_ME, QUERY_SINGLE_USER } from "../utils/queries";
+import { QUERY_ME, QUERY_SINGLE_USER, QUERY_USERS } from "../utils/queries";
 import { SAVE_LOCATION, REMOVE_LOCATION } from '../utils/mutations';
 
 const libraries = ["places"];
@@ -91,6 +91,14 @@ function Home() {
   const [removeLocation, {remove_error} ] = useMutation(REMOVE_LOCATION);
 
 
+  const {data:dataLatLng} = useQuery(QUERY_USERS);
+
+  const users = dataLatLng?.users || []; 
+  console.log(dataLatLng);
+  console.log(users);
+
+
+
 
   const handleDeleteLocation = async (locationId) => {
     try {
@@ -123,6 +131,8 @@ function Home() {
     // console.log(new Date());
     console.log(event);
 
+
+
     setMarkers((current) => [
       // ...current,
       {
@@ -142,8 +152,8 @@ function Home() {
         variables:{
         locationName: addressUser,
         checkin: " " + new Date().toString(),
-        latitude: "test_lat",
-        longitude: "test_lng",
+        latitude: newlat.toString(),
+        longitude: newlng.toString(),
         },
       });
     } catch (err) {
@@ -174,7 +184,7 @@ function Home() {
 
 
 
-
+  // console.log(users[0].location.latitude);
 
   return (
     <div>
@@ -184,49 +194,71 @@ function Home() {
       <Locate panTo={panTo} />
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={17}
+        zoom={13}
         center={center}
         options={options}
         onClick={onMapClick}
         onLoad={onMapLoad}
       >
-        {markers.map((marker) =>  (
+
+        {users.map((user) => {
+          return user.location ? (
           <Marker
-            //modify key to be ???
-            key={marker.time.toISOString()}
-            position={{ lat: marker.lat, lng: marker.lng }}
-            // draggable={true}
-            icon={{
-              url: "/images/002-placeholder.png",
-              // url: "/images/001-user.png",
-              scaledSize: new window.google.maps.Size(50, 50),
-              // center the marker when clicked
-              // origin: new window.google.maps.Point(0, 0),
-              // anchor: new window.google.maps.Point(25, 25),
-            }}
-            onClick={() => {
-              setSelected(marker);
-
-              Geocode.fromLatLng(newlat, newlng).then(
-                (response) => {
-                  addressUser = response.results[0].formatted_address;
-                  console.log(addressUser);
-                },
-                (error) => {
-                  console.error(error);
-                }
-              );
-
-
-
-              handleSaveLocation();
-
-
-
-            }}
+              key={user._id}
+              position={{lat: parseFloat(user.location.latitude),lng: parseFloat(user.location.longitude)}}
+              icon={{
+                url: "/images/003-direction.png",
+                scaledSize: new window.google.maps.Size(50, 50),
+              }}
           />
-         
-       ))}
+          )
+          :
+          (
+          <Marker
+              key={user._id}
+              position= {{lat: 37.779567089675034, lng: -122.47907017284403 }}
+              icon={{
+                url: "/images/003-direction.png",
+                scaledSize: new window.google.maps.Size(50, 50),
+              }}
+          />  
+          )         
+          })}
+
+
+
+        {markers.map((marker) => (
+            <Marker
+              //modify key to be ???
+              key={marker.time.toISOString()}
+              position={{ lat: marker.lat, lng: marker.lng }}
+            
+              // position={{lat: 37.779567089675034, lng: -122.47907017284403 }}
+              // draggable={true}
+              icon={{
+                url: "/images/002-placeholder.png",
+                // url: "/images/001-user.png",
+                scaledSize: new window.google.maps.Size(50, 50),
+                // center the marker when clicked
+                // origin: new window.google.maps.Point(0, 0),
+                // anchor: new window.google.maps.Point(25, 25),
+              }}
+              onClick={() => {
+                setSelected(marker);
+                Geocode.fromLatLng(newlat, newlng).then(
+                  (response) => {
+                    addressUser = response.results[0].formatted_address;
+                    console.log(addressUser);
+                  },
+                  (error) => {
+                    console.error(error);
+                  }
+                );
+                handleSaveLocation();
+              }}
+            />
+        ))}
+
         {selected ? (
           <InfoWindow
             position={{ 
@@ -236,7 +268,8 @@ function Home() {
             options={{
                 pixelOffset: new window.google.maps.Size(
                   0, -30
-                )
+                ),
+                maxWidth:320
               }}
             onCloseClick={() => {
               setSelected(null);
@@ -247,9 +280,9 @@ function Home() {
                 <img className="infoboxImg" src="./images/004-search.png"></img>
                 <h2>{user.username}</h2>
               </div>
-              <h3 className="infowinText">I got here at {formatRelative(selected.time, new Date())}</h3>
+              <h3 className="infowinText">You are here {formatRelative(selected.time, new Date())}</h3>
               {/* <h3 className="infowinText">My current location: {newlat},{newlng}</h3> */}
-              <h3 className="infowinText">My current location: {addressUser}</h3>
+              <h3 className="infowinText">{addressUser}</h3>
 
               {/* <p>{user.location._id}</p> */}
 
@@ -258,7 +291,10 @@ function Home() {
               ?
              null
              :
-             <h3 className="infowinText" >Please login to save this data to the map!</h3>
+              <div className="infoFooter">
+                <img className="infoFooterImg" src="./images/001-warning.png"></img>
+                <h4 className="" >Login to save data</h4>
+              </div>
               }
             </div>
           </InfoWindow>
@@ -267,7 +303,6 @@ function Home() {
     </div>
   );
 }
-
 
 
 
