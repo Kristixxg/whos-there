@@ -90,17 +90,7 @@ function Home() {
   const [saveLocation, {error}] = useMutation(SAVE_LOCATION);
   const [removeLocation, {remove_error} ] = useMutation(REMOVE_LOCATION);
 
-  const handleSaveLocation = async (event) => {
-    try {
-      const { data } = await saveLocation({
-        variables:{
-        locationName: addressUser
-        },
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  };
+
 
   const handleDeleteLocation = async (locationId) => {
     try {
@@ -117,10 +107,6 @@ function Home() {
 
 
 
-
-
-
-
   //avoid recreating function when render
   const onMapClick = React.useCallback((event) => {
 
@@ -134,7 +120,7 @@ function Home() {
     //   newlng
     // })
     // console.log(latlng);
-
+    // console.log(new Date());
     console.log(event);
 
     setMarkers((current) => [
@@ -147,6 +133,23 @@ function Home() {
     ]);
   }, []);
 
+
+
+  //*************************trying to display all user icons***************//
+  const handleSaveLocation = async (event) => {
+    try {
+      const { data } = await saveLocation({
+        variables:{
+        locationName: addressUser,
+        checkin: " " + new Date().toString(),
+        latitude: "test_lat",
+        longitude: "test_lng",
+        },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
 
   //use useRef to retain state without causing rerenders
@@ -166,6 +169,12 @@ function Home() {
 
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading Maps";
+
+
+
+
+
+
 
   return (
     <div>

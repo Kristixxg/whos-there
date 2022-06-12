@@ -40,7 +40,7 @@ const typeDefs = gql`
 
     saveLocation(
       locationName: String!
-      checkin: String!
+      checkin: String
       latitude: String
       longitude: String
     ): User
