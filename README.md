@@ -2,8 +2,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
+This application allows tennis players to find an empty tennis court quick!
 
-Deployed link:
+Application deployed on Heroku: https://whos-there-kkc.herokuapp.com/
 
 
 ## Table of Contents
@@ -16,23 +17,21 @@ Deployed link:
 * [License](#license)
 
 ## Installation
-The following will be a guide about installing the application and getting it to run once completed
-- Start by forking the repository 
-- Next perform a npm install
-```bash
-npm install 
-```
-- Then, create a dotenv file input the DB_NAME=book_db, DB_USER="your_user", DB_PASSWORD="your_password" 
-- Now desired changes can be made if desired
-- Then, seed the database
-```bash
-npm run seed
-```
-- Once that is all completed, in the terminal start the server
-```bash
-node server.js 
-```
+Installation is not required for this application. 
+
+
 ## Usage
+The following will be a guide about using the application
+- When page loads, a google map screen should be presented with some markers 
+<img src="./client/public/images/003-direction.png" width=20px>
+- The existing markers represent users' current location
+- Users can search a tennis court using the search bar
+- Users can place a marker to show other people who are viewing the map about where and which tennis court they are currently using
+<img src="./client/public/images/002-placeholder.png" width=20px>
+- Users' markers will only be saved if they have logged into their account
+- Users can remove their markers/icons when they are done using a tennis court
+- Users can locate their current address by clicking this icon 
+<img src="./client/public/images/001-compass.png" width=20px></img>
 
 
 
@@ -58,14 +57,14 @@ node server.js
 ||![Apollo-GraphQL](https://img.shields.io/badge/-ApolloGraphQL-311C87?style=for-the-badge&logo=apollo-graphql)|![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
 
-| 📚 APIs Used| 
-| ------------- |
+| 📚 APIs Used|
+| :------------- |
 | Maps JavaScript API|
 | Geocoding API|
 | Places API|
 
 |  📒 Libraries|
-| ------------- |
+| :------------- |
 | use-places-autocomplete | 
 | date-fns|
 | @reach/combbox|
