@@ -1,21 +1,24 @@
+/* background image for both login and signup */
 .container {
     background-image: url('../assets/images/image.jpg');
     height: 80vh;
     background-repeat: no-repeat;
-    background-position:center;
+    background-position: center;
 }
 
-.form-area{
-    left      : 50%;
-    top       : 50%;
-    position  : absolute;
-    transform : translate(-50%, -50%);
+/* form box */
+.form-area {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
     box-shadow: 0 0 20px 0 rgb(8, 90, 25);
     background: rgba(66, 87, 78, 0.8);
     padding: 20px;
     color: rgb(0, 0, 0);
 }
 
+/* text in form */
 .form-text {
     font-size: x-large;
     color: rgb(0, 0, 0);
@@ -23,6 +26,7 @@
     width: 100%;
 }
 
+/* h1 from form */
 .form-text h1 {
     text-align: center;
     margin: 35px 0;
@@ -30,6 +34,7 @@
     color: rgb(255, 255, 255);
 }
 
+/* login button  */
 .form-text button {
     width: 100px;
     margin: 10px auto;
@@ -43,7 +48,8 @@
     font-size: 20px;
 }
 
-.signupBtn button{
+/* signup button */
+.signupBtn button {
     width: 100px;
     margin: 10px auto;
     display: block;
@@ -56,10 +62,12 @@
     font-size: 20px;
 }
 
+/* text for signup button */
 .signupBtn h3 {
     color: white;
 }
 
+/* inputs within form  */
 .form-text input {
     display: block;
     width: 250px;
@@ -71,8 +79,3 @@
     border-radius: 8px;
     box-shadow: 0 0 8px 0 rgba(11, 231, 84, 0.575);
 }
-
-
-/* .error-text {
-    color: rgb(236, 0, 0);
-} */
