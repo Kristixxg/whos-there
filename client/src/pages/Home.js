@@ -386,7 +386,7 @@ function Search({ panTo }) {
     <div className="search">
       {/* when a user selects one of the suggestions that are showing, 
       we call setValue state to be the address the user picked and set it without going to google and fetch data */}
-      <Combobox
+      <Combobox 
         //using async becase we'll be using promises
         onSelect={async (address) => {
           //reposition where the latlng is when a place is clicked in the searchbar popover
@@ -416,7 +416,7 @@ function Search({ panTo }) {
           placeholder="Enter an address"
         />
 
-        <ComboboxPopover>
+        <ComboboxPopover className="first">
           {status === "OK" &&
             data.map(({ id, description }) => (
               <ComboboxOption key={id} value={description} />
