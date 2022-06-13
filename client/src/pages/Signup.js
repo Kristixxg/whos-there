@@ -54,7 +54,7 @@ const Signup = () => {
       ) : (
         <form className="form-area signup-form" onSubmit={handleFormSubmit}>
           <div className="form-text">
-            <h1>Signup Form</h1>
+            <h1>Signup</h1>
             <div className="input-one">
               <input
                 type="text"
