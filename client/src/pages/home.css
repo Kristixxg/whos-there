@@ -1,6 +1,11 @@
 .search {
     text-align: center;
     margin-bottom: 1rem;
+   
+}
+
+.first {
+    z-index:3;
 }
 
 .searchInput {
