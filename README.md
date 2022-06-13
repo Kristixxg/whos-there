@@ -10,6 +10,7 @@ Application deployed on Heroku: https://whos-there-kkc.herokuapp.com/
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
+* [Responsive Design](#responsive-design)
 * [Gif Demo](#gif-demo)
 * [Code Snippets](#code-snippets)
 * [Credits](#credits)
@@ -35,9 +36,31 @@ The following will be a guide about using the application
 
 
 
+## Responsive Design
+
+<img src="./client/public/images/phone.png" width=900px>
+<img src="./client/public/images/ipad.png" width=900px>
+<img src="./client/public/images/desktop.png" width=900px>
+
 ## Gif Demo
 
-<img src="./public/images/" width=900px>
+🔎 Search a location 
+
+<img src="./client/public/images/search.gif" width=900px>
+
+📌 Drop a marker
+
+<img src="./client/public/images/markers.gif" width=900px>
+
+📍 Find my current location
+
+<img src="./client/public/images/geolocate.gif" width=900px>
+
+🗺️ Google Maps API functions
+
+<img src="./client/public/images/googlefunc.gif" width=900px>
+
+
 
 ## Code Snippets
 
