@@ -56,7 +56,7 @@ const Login = () => {
           ) : (
             <form onSubmit={handleFormSubmit}>
               <div className="form-text">
-                <h1>Login</h1>
+                <h1>LOGIN</h1>
                 <div className="input">
                   <input
                     type="text"
@@ -89,7 +89,7 @@ const Login = () => {
               <div className="signupBtn">
                 <h3>Already Have An Account?</h3>
                 <Link to="/signup">
-                  <button type="submit">Sign Up!</button>
+                  <button type="submit">Sign Up</button>
                 </Link>
               </div>
             </form>
