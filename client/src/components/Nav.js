@@ -9,7 +9,7 @@ function Nav() {
     <nav>
       <h1 className="titleh1">
         WHOS THERE{" "}
-        <img className="titleImage" src="./images/003-tennis-ball-1.png"></img>
+        <a href="/"><img className="titleImage" src="./images/003-tennis-ball-1.png"></img></a>
       </h1>
       {Auth.loggedIn() ? (
         <>
