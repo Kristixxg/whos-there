@@ -14,7 +14,6 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.user || {};
-  console.log(user);
   if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
     return <Navigate to="/profile" />;
   }
@@ -26,8 +25,6 @@ const Profile = () => {
   if (!user?.username) {
     <h4>You need to be looged in to see your profile.</h4>;
   }
-  console.log(user.username);
-  console.log(user.location);
   return (
     <div className="bg">
       <div className="profile_container">

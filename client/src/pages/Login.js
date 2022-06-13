@@ -22,10 +22,7 @@ const Login = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-    console.log("hello");
     try {
-      console.log("im over hereeeeeee!!!");
       const { data } = await login({
         variables: { ...formState },
       });
