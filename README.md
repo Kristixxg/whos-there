@@ -47,15 +47,15 @@ The following will be a guide about using the application
 📍 Find my current location
 
 
-🗺️ Google Maps API functions
+<!-- 🗺️ Google Maps API functions -->
 
 <!-- <img src="./client/public/images/googlefunc.gif" width=900px> -->
 
-🔎 Search a location 
+<!-- 🔎 Search a location  -->
 
 <!-- <img src="./client/public/images/search.gif" width=900px> -->
 
-📌 Drop a marker
+<!-- 📌 Drop a marker -->
 
 <!-- <img src="./client/public/images/drop.gif" width=900px> -->
 
