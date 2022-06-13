@@ -14,6 +14,7 @@
     background: rgba(66, 87, 78, 0.8);
     padding: 20px;
     color: rgb(0, 0, 0);
+    border-radius: 10px;
 }
 
 .form-text {
@@ -76,3 +77,26 @@
 /* .error-text {
     color: rgb(236, 0, 0);
 } */
+
+
+/* media queries */
+/* tablet */
+@media screen and (max-width: 768px ) {
+  
+}
+
+
+/* phone */
+@media screen and (max-width: 390px ) {
+
+   
+}
+
+/* phone SE */
+@media screen and (max-width: 375px ) {
+    .form-text h1 {
+        font-size: 30px;
+        margin: 0;
+    }
+   
+}
