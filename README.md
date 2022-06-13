@@ -48,39 +48,40 @@ node server.js
 
 ## Credits
 
-| Technologies used|Front-end|Back-end|
+|  Technologies|Front-end|Back-end|
 | -|-:| -:|
-||![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)|
-||![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)|
-||![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)|![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)|
+||![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)|![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)|
+||![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)|![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)|
+||![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)|![Apollo-GraphQL](https://img.shields.io/badge/-ApolloGraphQL-311C87?style=for-the-badge&logo=apollo-graphql)
+||![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)|![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)|
 ||![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)|![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)|
-||Fetch|![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)|
-|||![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)|
-|||Session|
-|||Cookie|
-|||Handlebars|
-|||Node fetch|--
+||![Apollo-GraphQL](https://img.shields.io/badge/-ApolloGraphQL-311C87?style=for-the-badge&logo=apollo-graphql)|![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
 
-| API used| 
+| 📚 APIs Used| 
 | ------------- |
-| |
+| Maps JavaScript API|
+| Geocoding API|
+| Places API|
 
-| Third Party Libraries|
+|  📒 Libraries|
 | ------------- |
-|  | 
-| )
+| use-places-autocomplete | 
+| date-fns|
+| @reach/combbox|
 
 
 ## Contributors
-* Keerti Chaudhary [LinkedIn](https://www.linkedin.com/in/) | [GitHub](https://github.com/)
 * Kristy Guo [LinkedIn](www.linkedin.com/in/kristixxg) | [GitHub](https://github.com/kristixxg)
+
+* Keerti Chaudhary [LinkedIn](https://www.linkedin.com/in/keerti-chaudhary-25331791/) | [GitHub](https://github.com/17keerti)
+
 * Christian Tellez [LinkedIn](https://www.linkedin.com/in/) | [GitHub](https://github.com/)
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Copyright (c) 2022 Keerti Chaudhary & Kristy Guo & Christian Tellez
+Copyright (c) 2022 Kristy Guo & Keerti Chaudhary & Christian Tellez
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
