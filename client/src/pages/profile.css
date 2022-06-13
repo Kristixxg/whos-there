@@ -73,6 +73,15 @@ p {
 
 
 /* media queries */
+/* nest hub max tablet */
+@media screen and (max-width: 1293px ) {
+    .profile_top {
+        margin-top: 1rem;
+    }
+}
+
+
+
 /* tablet */
 @media screen and (max-width: 768px ) {
     .profile_container {
