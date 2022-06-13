@@ -44,27 +44,36 @@ The following will be a guide about using the application
 
 ## Gif Demo
 
+📍 Find my current location
+
+
+🗺️ Google Maps API functions
+
+<img src="./client/public/images/googlefunc.gif" width=900px>
+
 🔎 Search a location 
 
 <img src="./client/public/images/search.gif" width=900px>
 
 📌 Drop a marker
 
-<img src="./client/public/images/markers.gif" width=900px>
-
-📍 Find my current location
-
-<img src="./client/public/images/geolocate.gif" width=900px>
-
-🗺️ Google Maps API functions
-
-<img src="./client/public/images/googlefunc.gif" width=900px>
+<img src="./client/public/images/drop.gif" width=900px>
 
 
 
 ## Code Snippets
 
+👀 📌 for marker componenet 📌
 
+<img src="./client/public/images/markerComp.png" width=900px>
+
+👀 🪟 for infoWindow componenet 🪟
+
+<img src="./client/public/images/infowinComp.png" width=900px>
+
+👀 📦 for combobox componenets 📦	
+
+<img src="./client/public/images/comboComp.png" width=900px>
 
 
 
@@ -98,7 +107,7 @@ The following will be a guide about using the application
 
 * Keerti Chaudhary [LinkedIn](https://www.linkedin.com/in/keerti-chaudhary-25331791/) | [GitHub](https://github.com/17keerti)
 
-* Christian Tellez [LinkedIn](https://www.linkedin.com/in/) | [GitHub](https://github.com/)
+* Christian Tellez [LinkedIn](https://www.linkedin.com/in/christiantellez215/) | [GitHub](https://github.com/tellez215)
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
