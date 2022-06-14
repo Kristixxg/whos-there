@@ -83,34 +83,6 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-
-    saveCourt: async (parent, { courtName }, context) => {
-      if (context.user) {
-        return User.findOneAndUpdate(
-          { _id: context.user._id },
-          {
-            $set: { "location.court.courtName": courtName },
-          },
-          {
-            new: true,
-          }
-        );
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
-
-    removeCourt: async (parent, { courtId }, context) => {
-      if (context.user) {
-        return User.findOneAndUpdate(
-          { _id: context.user._id },
-          {
-            $unset: { "location.court": courtId },
-          },
-          { new: true }
-        );
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
   },
 };
 

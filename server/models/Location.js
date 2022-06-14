@@ -15,7 +15,6 @@ const locationSchema = new Schema({
   longitude: {
     type: String,
   },
-  court: courtSchema,
 });
 
 module.exports = locationSchema;

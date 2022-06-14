@@ -16,11 +16,6 @@ const typeDefs = gql`
     checkin: String
     latitude: String
     longitude: String
-    court: Court
-  }
-  type Court {
-    _id: ID
-    courtName: String
   }
 
   type Auth {
@@ -45,8 +40,6 @@ const typeDefs = gql`
       longitude: String
     ): User
     removeLocation(locationId: ID!): User
-    saveCourt(courtName: String!): User
-    removeCourt(courtId: ID!): User
   }
 `;
 
