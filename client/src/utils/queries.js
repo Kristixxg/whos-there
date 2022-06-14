@@ -12,10 +12,6 @@ export const QUERY_ME = gql`
         checkin
         latitude
         longitude
-        court {
-          _id
-          courtName
-        }
       }
     }
   }

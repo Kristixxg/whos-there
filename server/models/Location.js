@@ -4,7 +4,6 @@ const courtSchema = require("./Court");
 const locationSchema = new Schema({
   locationName: {
     type: String,
-    // required: true,
   },
   checkin: {
     type: String,
@@ -15,7 +14,6 @@ const locationSchema = new Schema({
   longitude: {
     type: String,
   },
-  court: courtSchema,
 });
 
 module.exports = locationSchema;
