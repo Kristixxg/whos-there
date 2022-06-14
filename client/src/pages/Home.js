@@ -95,8 +95,7 @@ function Home() {
   const {data:dataLatLng} = useQuery(QUERY_USERS);
 
   const users = dataLatLng?.users || []; 
-  console.log(dataLatLng);
-  console.log(users);
+
 
 
 
@@ -130,7 +129,7 @@ function Home() {
     // })
     // console.log(latlng);
     // console.log(new Date());
-    console.log(event);
+    // console.log(event);
 
 
 
@@ -278,7 +277,7 @@ function Home() {
                 Geocode.fromLatLng(newlat, newlng).then(
                   (response) => {
                     addressUser = response.results[0].formatted_address;
-                    console.log(addressUser);
+                    // console.log(addressUser);
                   },
                   (error) => {
                     console.error(error);
@@ -391,7 +390,7 @@ function Search({ panTo }) {
         onSelect={async (address) => {
           //reposition where the latlng is when a place is clicked in the searchbar popover
           // no need to get address from google api
-          console.log(address)
+          // console.log(address);
           setValue(address, false);
           // clearing out the suggestions after
           clearSuggestions();
