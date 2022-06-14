@@ -11,8 +11,8 @@ Application deployed on Heroku: https://whos-there-kkc.herokuapp.com/
 * [Installation](#installation)
 * [Usage](#usage)
 * [Responsive Design](#responsive-design)
-* [Gif Demo](#gif-demo)
 * [Code Snippets](#code-snippets)
+* [Future Development](#future-development)
 * [Credits](#credits)
 * [Contributors](#contributors)
 * [License](#license)
@@ -42,9 +42,9 @@ The following will be a guide about using the application
 <img src="./client/public/images/ipad.png" width=900px>
 <img src="./client/public/images/desktop.png" width=900px>
 
-## Gif Demo
+<!-- ## Gif Demo
 
-📍 Find my current location
+📍 Find my current location -->
 
 
 <!-- 🗺️ Google Maps API functions -->
@@ -74,6 +74,11 @@ The following will be a guide about using the application
 👀 📦 for combobox componenets 📦	
 
 <img src="./client/public/images/comboComp.png" width=900px>
+
+
+## Future Development
+- Add court name to profile page
+
 
 
 
