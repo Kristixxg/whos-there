@@ -1,0 +1,65 @@
+.carousel {
+    height: 80vh;
+}
+
+.carousel_img {
+    height: 75vh;
+    object-fit: cover;
+    opacity: 77%;
+}
+
+.slide {
+    position: relative;
+}
+
+.des1 {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    left: 25rem;
+    top: 15rem;
+    color: white;
+}
+
+.des2 {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    right: 16rem;
+    top: 35rem;
+    color: white;
+}
+
+.des3 {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    left: 6rem;
+    top: 20rem;
+    color: white;
+}
+
+.des_title {
+    font-size: 2rem;
+}
+
+.des_btn {
+    backface-visibility: hidden;
+    background:  rgb(238, 181, 49);
+    border-radius: 8px;
+    border: 3px solid white;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    width: fit-content;
+    padding: 13px 20px;
+    transition: all .4s;
+    margin-top: 0.8rem;
+}
+.des_btn:hover {
+    background-color: #1e8449;
+}
