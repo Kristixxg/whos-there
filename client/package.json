@@ -15,6 +15,7 @@
     "react-dom": "^17.0.2",
     "react-geocode": "^0.2.3",
     "react-icons": "^4.4.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "use-places-autocomplete": "^3.0.0",

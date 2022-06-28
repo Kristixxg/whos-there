@@ -1,6 +1,8 @@
 /* background image for both login and signup */
 .container {
-    background-image: url('../assets/images/image.jpg');
+    /* background-image: url('../assets/images/image.jpg'); */
+    background-image: url('../../public/images/phone.webp');
+    background-color: rgba(3, 4, 16, 0.901);
     height: 80vh;
     background-repeat: no-repeat;
     background-position: center;
@@ -12,25 +14,24 @@
     top: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 20px 0 rgb(8, 90, 25);
     background: rgba(66, 87, 78, 0.8);
-    padding: 20px;
-    color: rgb(0, 0, 0);
+    padding: 3rem 3rem 2rem ;
     border-radius: 10px;
 }
 
 /* text in form */
 .form-text {
-    font-size: x-large;
-    color: rgb(0, 0, 0);
-    height: 100%;
-    width: 100%;
+    /* font-size: 2rem; */
+    /* color: rgb(0, 0, 0); */
+    /* color: white; */
+    /* height: 400px; */
+    /* width: 100%; */
 }
 
 /* h1 from form */
 .form-text h1 {
     text-align: center;
-    margin: 35px 0;
+    /* margin: 35px 0; */
     font-size: 42px;
     color: rgb(255, 255, 255);
 }
@@ -39,14 +40,17 @@
 .form-text button {
     width: 100px;
     margin: 10px auto;
+    margin-top: 3rem;
     display: block;
     cursor: pointer;
     border: 0;
     padding: 5px;
     border-radius: 10px;
-    box-shadow: 0 0 8px 0 rgba(11, 231, 84, 0.575);
-    color: rgb(0, 0, 0);
-    font-size: 20px;
+    /* box-shadow: 0 0 8px 0 rgba(11, 231, 84, 0.575); */
+    color: rgb(85, 83, 83);
+    font-size: 18px;
+    font-weight: 500;
+    background: white;
 }
 
 /* signup button */
@@ -58,14 +62,24 @@
     border: 0;
     padding: 5px;
     border-radius: 10px;
-    box-shadow: 0 0 8px 0 rgba(11, 231, 84, 0.575);
-    color: rgb(0, 0, 0);
-    font-size: 20px;
+    /* box-shadow: 0 0 8px 0 rgba(11, 231, 84, 0.575); */
+    color: rgb(85, 83, 83);
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 1rem;
+    background: white;
 }
+
+
 
 /* text for signup button */
 .signupBtn h3 {
     color: white;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    
 }
 
 /* inputs within form  */
@@ -74,11 +88,16 @@
     width: 250px;
     margin: 20px auto;
     padding: 1px 15px;
-    color: rgb(0, 0, 0);
+    color: rgb(85, 83, 83);
     border: 0;
-    font-size: 20px;
+    font-size: 16px;
+    padding: 0.5rem;
     border-radius: 8px;
     box-shadow: 0 0 8px 0 rgba(11, 231, 84, 0.575);
+}
+
+.form-text input:focus {
+    outline: none;
 }
 
 

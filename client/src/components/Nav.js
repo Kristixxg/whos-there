@@ -15,7 +15,7 @@ function Nav() {
         <>
           <ul>
             <li className="button-68">
-              <Link to="/">HOME</Link>
+              <Link to="/home">HOME</Link>
             </li>
             <li className="button-68">
               <Link to="/profile">PROFILE</Link>
@@ -29,7 +29,7 @@ function Nav() {
         <>
           <ul>
             <li className="button-68">
-              <Link to="/">HOME</Link>
+              <Link to="/home">HOME</Link>
             </li>
             <li className="button-68">
               <Link to="/signup">SIGN UP</Link>
