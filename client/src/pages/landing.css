@@ -4,6 +4,7 @@
 
 .carousel_img {
     height: 75vh;
+    width: auto;
     object-fit: cover;
     opacity: 77%;
 }
@@ -28,7 +29,7 @@
     flex-direction: column;
     align-items: flex-end;
     right: 16rem;
-    top: 35rem;
+    top: 28rem;
     color: white;
 }
 
@@ -43,23 +44,155 @@
 }
 
 .des_title {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .des_btn {
     backface-visibility: hidden;
     background:  rgb(238, 181, 49);
     border-radius: 8px;
-    border: 3px solid white;
+    border: 2px solid white;
     color: white;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     width: fit-content;
-    padding: 13px 20px;
+    padding: 11px 18px;
     transition: all .4s;
     margin-top: 0.8rem;
 }
 .des_btn:hover {
     background-color: #1e8449;
+}
+
+
+
+/* media queries */
+/* tablet */
+@media screen and (max-width: 768px ) {
+    
+    .des_btn {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+        margin-top: 0.8rem;
+    }
+    .des3 {
+        top: 7rem;
+        left: 3rem;
+    }
+}
+  
+
+@media screen and (max-width: 577px ) {
+
+    .carousel {
+        height: 70vh;
+    }
+
+    .carousel_img {
+        height: 70vh;
+        object-fit: cover;
+    }
+    
+}
+  
+  /* phone */
+@media screen and (max-width: 442px ) {
+    .carousel {
+        height: 70vh;
+    }
+
+    .carousel_img {
+        height: 70vh;
+        object-fit: cover;
+    }
+
+    .des_title {
+        font-size: 1rem;
+    }
+
+    .des_btn {
+        font-size: 0.7rem;
+        padding: 0.4rem;
+        margin-top: 0.8rem;
+    }
+    .des3 {
+        top: 7rem;
+        left: 3rem;
+    }
+
+    .des2 {
+        top: 24rem;
+        right: 2rem;
+        align-items: flex-end;
+    }
+    .des1 {
+        top: 16rem;
+        left: 4rem;
+        align-items: flex-start;
+
+    }
+} 
+
+/* phone SE */
+@media screen and (max-width: 375px ) {
+    .carousel {
+        height: 65vh;
+    }
+
+    .carousel_img {
+        height: 65vh;
+        object-fit: cover;
+    }
+
+    .des_title {
+        font-size: 1rem;
+    }
+
+    .des_btn {
+        font-size: 0.7rem;
+        padding: 0.4rem;
+        margin-top: 0;
+    }
+
+    .des1 {
+
+    }
+    .des2 {
+        
+    }
+    .des3 {
+        top: 22rem;
+        left: 3rem;
+    }
+}
+
+/* Galaxy Fold */
+
+@media screen and (max-width: 375px ) {
+    .des1 {
+        top: 16rem;
+        left: 1rem;
+        align-items: flex-start;
+
+    }
+
+    .des2 {
+        top: 18rem;
+        right: 2rem;
+        align-items: flex-end;
+    }
+
+    .des2 .des_title {
+        width: max-content;
+    }
+
+    .des2 .des_btn {
+        width: max-content;
+    }
+
+    .des3 {
+        align-items: flex-end;
+        top: 2rem;
+    }
 }

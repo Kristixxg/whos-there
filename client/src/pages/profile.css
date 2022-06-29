@@ -15,7 +15,7 @@
     text-align: center;
     color: white;
     font-size: 1.5rem;
-    margin-top: 5rem;
+    margin-top: 2.5rem;
 }
 
 .profile_image {
@@ -82,8 +82,14 @@ p {
 
 
 
+
 /* tablet */
 @media screen and (max-width: 768px ) {
+
+    .profile_top {
+        margin-top: 8rem;
+    }
+
     .profile_container {
         width: 68%;
     }
@@ -104,6 +110,21 @@ p {
 
     .profile_top {
         margin-top: 3rem;
+    }
+
+    .profile_username {
+        font-size: 1.3rem;
+        margin: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 414px ) {
+    .profile_container {
+        width: 90%;
+    }
+
+    .profile_top {
+        margin-top: 4.5rem;
     }
 
     .profile_username {
