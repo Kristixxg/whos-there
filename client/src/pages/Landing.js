@@ -20,7 +20,7 @@ function landing() {
                  <div >
                     <img className='carousel_img' src="images/tennis5fixed.webp" />
                     <div className='des1'>
-                        <h1 className='des_title'>Looking for a court?</h1>
+                        <h1 className='des_title'>Find an empty court?</h1>
                         <Link to='/home'><button className='des_btn'>Search a park</button></Link>
 
                     </div>
