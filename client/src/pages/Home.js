@@ -194,7 +194,7 @@ function Home() {
       <Locate panTo={panTo} />
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={13}
+        zoom={11}
         center={center}
         options={options}
         onClick={onMapClick}
