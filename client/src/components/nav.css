@@ -72,13 +72,19 @@ a {
 /* media queries */
 /* tablet */
 
-@media screen and (max-width: 768px ) {
-  .titleImage {
-    width: 60px;
-}
+@media screen and (max-width: 676px ) {
+  .nav_ul {
+    display: flex;
+    flex-direction: column;
+  }
+  .button-68 {
+    font-size: 13px;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
 }
 
-
+/* 
 @media screen and (max-width: 577px ) {
  .nav_ul {
     display: flex;
@@ -91,10 +97,10 @@ a {
     margin-bottom: 10px;
   }
 
-}
+} */
 
 /* phone */
-@media screen and (max-width: 414px ) {
+@media screen and (max-width: 416px ) {
 
   nav {
     padding: 0.5rem;
