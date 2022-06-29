@@ -13,7 +13,7 @@ function Nav() {
       </h1>
       {Auth.loggedIn() ? (
         <>
-          <ul>
+          <ul className="nav_ul">
             <li className="button-68">
               <Link to="/home">HOME</Link>
             </li>
@@ -27,7 +27,7 @@ function Nav() {
         </>
       ) : (
         <>
-          <ul>
+          <ul className="nav_ul">
             <li className="button-68">
               <Link to="/home">HOME</Link>
             </li>

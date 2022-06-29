@@ -5,11 +5,12 @@ footer {
     text-align: center;
     background-color: white;
     padding-bottom: 1rem;
+    font-size: 13px;
 }
 
 svg {
  cursor: pointer;
- width: 22px;
- height: 22px;
+ width: 16px;
+ height: 16px;
  margin-top: 1rem;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './landing.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import './landing.css';
 import { Carousel } from 'react-responsive-carousel';
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,6 @@ function landing() {
     return (
 
             <Carousel showThumbs={false} showStatus={false} showArrows={true}>
-
                 <div>
                     <img className='carousel_img' src="images/dogpark.jpeg" />
                     <div className='des3'>
@@ -18,7 +17,7 @@ function landing() {
                     </div>
                 </div>
 
-                 <div className='slide'>
+                 <div >
                     <img className='carousel_img' src="images/tennis5fixed.webp" />
                     <div className='des1'>
                         <h1 className='des_title'>Looking for a court?</h1>
