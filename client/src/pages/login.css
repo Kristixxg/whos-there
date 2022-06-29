@@ -99,14 +99,14 @@
 
 
 /* phone SE */
-@media screen and (max-width: 375px ) {
+@media screen and (max-width: 416px ) {
     .form-text h1 {
         font-size: 25px;
         margin: 0;
     }
 
     .form-area {
-        padding: 1rem;
+        padding: 0.8rem;
         margin-top: 2rem;
     }
    
